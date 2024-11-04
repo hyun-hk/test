@@ -1,101 +1,172 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Navbar } from '@/components/Navbar';
+import { Hero } from '@/components/Hero';
+import { StreamerCard } from '@/components/StreamerCard';
+import { Footer } from '@/components/Footer';
+import { SectionIndicator } from '@/components/SectionIndicator';
+
+const streamers = [
+  {
+    id: 1,
+    name: "김태양 'Solar'",
+    role: "FPS 전문가",
+    bio: "발로란트 프로게이머 출신 스트리머, 뛰어난 에임과 전략적 플레이로 유명",
+    youtubeUrl: "https://youtube.com/@example",
+    gradientFrom: "from-red-500",
+    gradientTo: "to-orange-500"
+  },
+  {
+    id: 2,
+    name: "이하늘 'Sky'",
+    role: "종합 게임 스트리머",
+    bio: "다양한 장르의 게임을 재미있는 해설과 함께 플레이하는 엔터테이너",
+    youtubeUrl: "https://youtube.com/@example",
+    gradientFrom: "from-blue-500",
+    gradientTo: "to-purple-500"
+  },
+  {
+    id: 3,
+    name: "박민준 'Victory'",
+    role: "스피드러너",
+    bio: "여러 게임의 세계 기록 보유자, 불가능을 가능으로 만드는 도전자",
+    youtubeUrl: "https://youtube.com/@example",
+    gradientFrom: "from-green-500",
+    gradientTo: "to-emerald-500"
+  },
+  {
+    id: 4,
+    name: "정서연 'Luna'",
+    role: "아트 스트리머",
+    bio: "디지털 아트와 게임을 결합한 독특한 방송 진행",
+    youtubeUrl: "https://youtube.com/@example",
+    gradientFrom: "from-purple-500",
+    gradientTo: "to-pink-500"
+  },
+  {
+    id: 5,
+    name: "최준호 'Thunder'",
+    role: "리듬게임 전문가",
+    bio: "모든 리듬게임을 마스터한 리듬게임의 신",
+    youtubeUrl: "https://youtube.com/@example",
+    gradientFrom: "from-yellow-500",
+    gradientTo: "to-amber-500"
+  },
+  {
+    id: 6,
+    name: "한소희 'Star'",
+    role: "실시간 소통",
+    bio: "시청자와 실시간 소통하며 다양한 콘텐츠를 진행하는 엔터테이너",
+    youtubeUrl: "https://youtube.com/@example",
+    gradientFrom: "from-indigo-500",
+    gradientTo: "to-blue-500"
+  }
+];
+
+const pageTransition = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 }
+};
+
+function Page() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="bg-primary text-white smooth-scroll">
+      <Navbar />
+      <SectionIndicator />
+      
+      <main>
+        <AnimatePresence mode="wait">
+          <section key="home-section" id="home" className="min-h-screen">
+            <Hero />
+          </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.section 
+            key="team-section"
+            id="team" 
+            className="min-h-screen py-20 px-4 sm:px-6 lg:px-8"
+            initial="initial"
+            whileInView="animate"
+            exit="exit"
+            variants={pageTransition}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="max-w-7xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-center mb-12 sm:mb-16"
+              >
+                <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">스트리머 소개</h2>
+                <p className="text-gray-400 max-w-2xl mx-auto px-4">
+                  마블러스 팀의 talented 크리에이터들을 만나보세요
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {streamers.map((streamer) => (
+                  <StreamerCard key={streamer.id} {...streamer} />
+                ))}
+              </div>
+            </div>
+          </motion.section>
+
+          <motion.section 
+            key="schedule-section"
+            id="schedule" 
+            className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-secondary"
+            initial="initial"
+            whileInView="animate"
+            exit="exit"
+            variants={pageTransition}
           >
-            Read our docs
-          </a>
-        </div>
+            <div className="max-w-7xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-center mb-12 sm:mb-16"
+              >
+                <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">방송 일정</h2>
+                <p className="text-gray-400 max-w-2xl mx-auto px-4">
+                  최신 방송 일정을 확인하고 좋아하는 방송을 놓치지 마세요
+                </p>
+              </motion.div>
+
+              <div className="grid gap-4 sm:gap-6">
+                {streamers.slice(0, 3).map((streamer) => (
+                  <motion.div
+                    key={`schedule-${streamer.id}`}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: streamer.id * 0.1 }}
+                    className="glass-effect p-4 sm:p-6 rounded-lg hover:bg-accent/20 transition-colors"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between">
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold mb-2">{streamer.name}의 주간 스트리밍</h3>
+                        <p className="text-gray-400">진행: {streamer.role}</p>
+                      </div>
+                      <div className="mt-3 sm:mt-0">
+                        <span className="glass-effect px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm inline-block">
+                          매주 목요일 오후 8시
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
+        </AnimatePresence>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <Footer />
     </div>
   );
 }
+
+export default Page;

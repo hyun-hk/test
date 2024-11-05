@@ -27,7 +27,7 @@ export const Hero = () => {
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6">
-            <span className="text-gradient">마블러스</span>에 오신 것을
+            <span className="text-gradient">MARVELLOUS</span>에 오신 것을
             <br className="hidden sm:block" /> 환영합니다
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto">

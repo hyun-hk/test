@@ -11,25 +11,25 @@ import { SectionIndicator } from '@/components/SectionIndicator';
 const streamers = [
   {
     id: 1,
-    name: "김태양 'Solar'",
-    role: "FPS 전문가",
-    bio: "발로란트 프로게이머 출신 스트리머, 뛰어난 에임과 전략적 플레이로 유명",
+    name: "검필",
+    role: "종합 게임 스트리머",
+    bio: "종합 게임을 하는 유루바로써 굉장한 정신머리가 나간 스트리머입니다.",
     youtubeUrl: "https://youtube.com/@example",
     gradientFrom: "from-red-500",
     gradientTo: "to-orange-500"
   },
   {
     id: 2,
-    name: "이하늘 'Sky'",
-    role: "종합 게임 스트리머",
-    bio: "다양한 장르의 게임을 재미있는 해설과 함께 플레이하는 엔터테이너",
+    name: "송채하",
+    role: "롤 스트리머",
+    bio: "롤의 희생양이 되버린 안타까운 스트리머입니다.",
     youtubeUrl: "https://youtube.com/@example",
     gradientFrom: "from-blue-500",
     gradientTo: "to-purple-500"
   },
   {
     id: 3,
-    name: "박민준 'Victory'",
+    name: "",
     role: "스피드러너",
     bio: "여러 게임의 세계 기록 보유자, 불가능을 가능으로 만드는 도전자",
     youtubeUrl: "https://youtube.com/@example",
@@ -101,7 +101,7 @@ function Page() {
               >
                 <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">스트리머 소개</h2>
                 <p className="text-gray-400 max-w-2xl mx-auto px-4">
-                  마블러스 팀의 talented 크리에이터들을 만나보세요
+                MARVELLOUS 팀의 talented 크리에이터들을 만나보세요
                 </p>
               </motion.div>
 

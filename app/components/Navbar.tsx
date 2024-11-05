@@ -28,7 +28,7 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-black/30 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +38,7 @@ export const Navbar = () => {
             whileHover={{ scale: 1.05 }}
           >
             <span className="text-white text-3xl font-bold tracking-tight">
-              마블<span className="text-gradient">러스</span>
+              <span className="text-gradient">MARVELLOUS</span>
             </span>
           </motion.div>
           
@@ -57,7 +57,7 @@ export const Navbar = () => {
               ))}
               <motion.a
                 href="#"
-                className="glass-effect p-2 rounded-full hover:bg-red-600/20 transition-colors"
+                className="bg-black/30 backdrop-blur-md p-2 rounded-full hover:bg-red-600/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
               >
                 <Youtube className="w-6 h-6 text-red-500" />
@@ -69,7 +69,7 @@ export const Navbar = () => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white glass-effect p-2 rounded-full"
+              className="text-gray-300 hover:text-white bg-black/30 backdrop-blur-md p-2 rounded-full"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </motion.button>
@@ -83,7 +83,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden glass-effect"
+            className="md:hidden overflow-hidden bg-black/30 backdrop-blur-md"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navItems.map((item) => (

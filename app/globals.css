@@ -7,10 +7,18 @@
     scroll-behavior: smooth;
     height: 100%;
     overflow-y: auto;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  }
+  
+  html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;  /* Chrome, Safari, Opera */
   }
   
   body {
-    @apply bg-primary text-white;
+    @apply bg-gradient-to-b from-primary via-primary/95 to-primary text-white;
     height: 100%;
   }
 
@@ -22,8 +30,11 @@
 
 @layer utilities {
   .glass-effect {
-    @apply bg-black/30 backdrop-blur-md;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
   }
 
   .text-gradient {
@@ -50,4 +61,22 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-600;
+}
+
+@layer components {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
